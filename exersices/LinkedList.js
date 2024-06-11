@@ -48,28 +48,19 @@ class LinkedList {
       this.tail = null;
     }
     return temp;
+  }
 
-    // if (!this.head) {
-    //     return undefined;
-    //   }
-    // else if (this.length === 1) {
-    //   this.temp = this.head;
-    //   this.head = null;
-    //   this.tail = null;
-    //   this.length = 0;
-    //   return this.temp;
-    // } else {
-    //   this.temp = this.head;
-    //   for (let node = 1; node < this.length; node++) {
-    //     if (node !== this.length - 1) {
-    //       this.temp = this.temp.next;
-    //     } else if (node === this.length - 1) {
-    //       this.tail = this.temp;
-    //       this.temp.next = null;
-    //       this.length--;
-    //     }
-    //   }
-    // }
+  unshift(value) {
+    const newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
   }
 }
 
