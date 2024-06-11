@@ -30,6 +30,7 @@ class LinkedList {
     return this;
   }
 
+  //   remove a node from end of LL
   pop() {
     if (!this.head) {
       return undefined;
@@ -50,6 +51,7 @@ class LinkedList {
     return temp;
   }
 
+  //   add a node to start of LL
   unshift(value) {
     const newNode = new Node(value);
     if (!this.head) {
@@ -63,6 +65,7 @@ class LinkedList {
     return this;
   }
 
+  //   remove a node from start of LL
   shift() {
     if (!this.head) {
       return undefined;
@@ -77,6 +80,7 @@ class LinkedList {
     return temp;
   }
 
+  //   returns a node based on index of LL
   get(index) {
     if (index < 0 || index >= this.length) {
       return undefined;
@@ -88,6 +92,7 @@ class LinkedList {
     return temp;
   }
 
+  //   sets a nodes value based on index
   set(index, value) {
     const temp = this.get(index);
     if (temp) {
@@ -96,14 +101,32 @@ class LinkedList {
     }
     return false;
   }
+
+  //   inserts a new node based on index
+
+  insert(index, value) {
+    if (index < 0 || index > this.length) {
+      return false;
+    }
+    if (index === 0) {
+      return this.unshift(value);
+    }
+    if (index === this.length) {
+      return this.push(value);
+    }
+
+    const newNode = new Node(value);
+    let temp = this.get(index - 1);
+
+    newNode.next = temp.next;
+    temp.next = newNode;
+    this.length++;
+    return true;
+  }
 }
 
-const myLL = new LinkedList(0);
-myLL.push(1);
-myLL.push(2);
-myLL.push(3);
-myLL.push(4);
-myLL.push(5);
-myLL.push(6);
+const myLL = new LinkedList(5);
+myLL.push(7);
+myLL.push(9);
 
 console.log(myLL);
