@@ -71,9 +71,19 @@ class LinkedList {
     this.head = this.head.next;
     temp.next = null;
     this.length--;
-
     if (this.length === 0) {
       this.tail = null;
+    }
+    return temp;
+  }
+
+  get(index) {
+    if (index < 0 || index >= this.length) {
+      return undefined;
+    }
+    let temp = this.head;
+    for (let node = 0; node < index; node++) {
+      temp = temp.next;
     }
     return temp;
   }
@@ -81,5 +91,9 @@ class LinkedList {
 
 const myLL = new LinkedList(1);
 myLL.push(2);
+myLL.push(3);
+myLL.push(4);
+myLL.push(5);
+myLL.push(6);
 
 console.log(myLL);
