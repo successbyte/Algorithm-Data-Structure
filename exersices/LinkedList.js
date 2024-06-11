@@ -87,9 +87,19 @@ class LinkedList {
     }
     return temp;
   }
+
+  set(index, value) {
+    const temp = this.get(index);
+    if (temp) {
+      temp.value = value;
+      return true;
+    }
+    return false;
+  }
 }
 
-const myLL = new LinkedList(1);
+const myLL = new LinkedList(0);
+myLL.push(1);
 myLL.push(2);
 myLL.push(3);
 myLL.push(4);
