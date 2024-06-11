@@ -103,7 +103,6 @@ class LinkedList {
   }
 
   //   inserts a new node based on index
-
   insert(index, value) {
     if (index < 0 || index > this.length) {
       return false;
@@ -122,6 +121,25 @@ class LinkedList {
     temp.next = newNode;
     this.length++;
     return true;
+  }
+
+  //   removes a node frlom LL based on index
+  remove(index) {
+    if (index < 0 || index >= this.length) {
+      return undefined;
+    }
+    if (index === 0) {
+      return this.shift();
+    }
+    if (index === this.length - 1) {
+      return this.pop();
+    }
+    let pre = this.get(index - 1);
+    let temp = pre.next;
+    pre.next = temp.next;
+    temp.next = null;
+    this.length--;
+    return temp;
   }
 }
 
