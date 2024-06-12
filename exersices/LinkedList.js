@@ -141,10 +141,32 @@ class LinkedList {
     this.length--;
     return temp;
   }
+
+  //   reverses the whole LL
+  reverse() {
+    if (!this.head) {
+      return undefined;
+    }
+    if (this.length === 1) {
+      return this;
+    }
+    let temp = this.head;
+    this.head = this.tail;
+    this.tail = temp;
+    let before = null;
+    let next = temp.next;
+    for (let i = 0; i < this.length; i++) {
+      next = temp.next;
+      temp.next = before;
+      before = temp;
+      temp = next;
+    }
+    return this;
+  }
 }
 
 const myLL = new LinkedList(5);
-myLL.push(7);
-myLL.push(9);
+// myLL.push(7);
+// myLL.push(9);
 
 console.log(myLL);
