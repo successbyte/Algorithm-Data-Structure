@@ -13,6 +13,20 @@ class DoublyLinkedList {
     this.tail = newNode;
     this.length = 1;
   }
+
+  push(value) {
+    const newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.prev = this.tail;
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+    this.length++;
+    return this;
+  }
 }
 
 let doubleLinkedList = new DoublyLinkedList(5);
