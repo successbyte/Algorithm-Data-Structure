@@ -169,4 +169,4 @@ const myLL = new LinkedList(5);
 // myLL.push(7);
 // myLL.push(9);
 
-console.log(myLL);
+// console.log(myLL);
