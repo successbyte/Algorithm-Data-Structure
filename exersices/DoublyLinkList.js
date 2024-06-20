@@ -102,6 +102,28 @@ class DoublyLinkedList {
     }
     return false;
   }
+
+  insert(index, value) {
+    if (index < 0 || index > this.length) {
+      return false;
+    }
+    if (index === 0) {
+      return this.unshift(value);
+    }
+    if (index === this.length) {
+      return this.push(value);
+    }
+
+    const newNode = new Node(value);
+    let before = this.get(index - 1);
+    console.log("first");
+    newNode.next = before.next;
+    before.next.prev = newNode;
+    before.next = newNode;
+    newNode.prev = before;
+    this.length++;
+    return this;
+  }
 }
 
 let doubleLinkedList = new DoublyLinkedList(5);
