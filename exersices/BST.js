@@ -51,6 +51,14 @@ class BST {
     }
     return false;
   }
+
+  minimumValue(currentNode) {
+    if (this.root === null) return undefined;
+    while (currentNode.left) {
+      currentNode = currentNode.left;
+    }
+    return currentNode;
+  }
 }
 
 const myBST = new BST();
