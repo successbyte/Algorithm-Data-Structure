@@ -7,7 +7,7 @@ class Node {
 }
 
 class BST {
-  constructor(value) {
+  constructor() {
     this.root = null;
   }
 
@@ -36,9 +36,24 @@ class BST {
       }
     }
   }
+
+  contains(value) {
+    if (this.root === null) return false;
+    let temp = this.root;
+    while (temp) {
+      if (value < temp.value) {
+        temp = temp.left;
+      } else if (value > temp.value) {
+        temp = temp.right;
+      } else {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
-const myBST = new BST(2);
+const myBST = new BST();
 myBST.insert(47);
 myBST.insert(21);
 myBST.insert(76);
