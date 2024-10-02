@@ -53,7 +53,6 @@ class BST {
   }
 
   minimumValue(currentNode) {
-    if (this.root === null) return undefined;
     while (currentNode.left) {
       currentNode = currentNode.left;
     }
