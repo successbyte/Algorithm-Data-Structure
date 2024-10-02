@@ -10,7 +10,16 @@ class HashTable {
     }
     return hash;
   }
+
+  set(key, value) {
+    let index = this._hash(key);
+    if (!this.dataMap[index]) this.dataMap[index] = [];
+
+    this.dataMap[index].push([key, value]);
+    return this;
+  }
 }
 
 let myHashTable = new HashTable();
+myHashTable.set("frontDevs", 4);
 console.log(myHashTable);
