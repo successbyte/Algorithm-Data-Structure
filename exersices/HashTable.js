@@ -18,6 +18,16 @@ class HashTable {
     this.dataMap[index].push([key, value]);
     return this;
   }
+
+  get(key) {
+    let index = this._hash(key);
+    if (this.dataMap[index]) {
+      for (let item of this.dataMap[index]) {
+        if (item[0] === key) return item[1];
+      }
+    }
+    return undefined;
+  }
 }
 
 let myHashTable = new HashTable();
