@@ -32,9 +32,24 @@ class Graph {
     }
     return false;
   }
+
+  removeVertex(vertex) {
+    if (!this.adjacencyList[vertex]) return undefined;
+    while (this.adjacencyList[vertex].length) {
+      this.removeEdge(vertex, this.adjacencyList[vertex][0]);
+    }
+    delete this.adjacencyList[vertex];
+    return this;
+  }
 }
 
 let myGraph = new Graph();
 myGraph.addVertex(1);
 myGraph.addVertex(2);
+myGraph.addVertex(3);
+myGraph.addVertex(4);
+myGraph.addEdge(1, 2);
+myGraph.addEdge(1, 4);
+myGraph.addEdge(2, 4);
+myGraph.addEdge(3, 4);
 console.log(myGraph);
