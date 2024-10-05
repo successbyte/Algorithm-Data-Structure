@@ -19,6 +19,19 @@ class Graph {
     }
     return false;
   }
+
+  removeEdge(vertex1, vertex2) {
+    if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
+      this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
+        (e) => e !== vertex2
+      );
+      this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(
+        (e) => e !== vertex1
+      );
+      return true;
+    }
+    return false;
+  }
 }
 
 let myGraph = new Graph();
