@@ -1,4 +1,4 @@
-function Merge(array1, array2) {
+function merge(array1, array2) {
   let combined = [];
   let i = 0;
   let j = 0;
@@ -16,10 +16,18 @@ function Merge(array1, array2) {
     i++;
   }
   while (j < array2.length) {
-    combined.push(array1[j]);
-    i++;
+    combined.push(array2[j]);
+    j++;
   }
   return combined;
 }
 
-console.log(Merge([1, 3, 7, 8], [2, 4, 5, 6]));
+function mergeSort(array) {
+  if (array.length === 1) return array;
+  let mid = Math.floor(array.length / 2);
+  let left = array.slice(0, mid);
+  let right = array.slice(mid);
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+console.log(mergeSort([1, 3, 7, 8, 2, 4, 5, 6]));
